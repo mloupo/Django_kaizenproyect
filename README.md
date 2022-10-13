@@ -1,0 +1,2 @@
+# kaizenproyect
+django based project
