@@ -1,6 +1,31 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
+
+def index(request):
+    listado_cursos = [
+        {
+            'nombre': 'Fullstack Java',
+            'descripcion': 'Curso de Fullstack',
+            'categoria': 'Programación',
+            'imagen': 'https://picsum.photos/id/500/300/200'
+        },
+        {
+            'nombre': 'Diseño UX/IU',
+            'descripcion': '🎨',
+            'categoria': 'Diseño',
+            'imagen': 'https://picsum.photos/id/500/300/200'
+        },
+        {
+            'nombre': 'Big Data',
+            'descripcion': 'test',
+            'categoria': 'Analisis de Datos',
+            'imagen': 'https://picsum.photos/id/500/300/200'
+        },
+    ]
+
+    return redirect('saludar',nombre ='Estanislao')
+
 # Create your views here.
 def hola_mundo(request):
     return HttpResponse('Hola Marti Querido')
@@ -8,12 +33,12 @@ def hola_mundo(request):
 
 def saludar(request, nombre):
     return HttpResponse(f"""
-        <h1> Hola Queridisimo [{nombre}]                        
+        <h1> Hola Queridisimo {nombre}                        
         """)
 
 def saludar_default(request, nombre='user'):
     return HttpResponse(f"""
-        <h1> Hola Queridisimo [{nombre}]                        
+        <h1> Hola Queridisimo {nombre}                        
         """)
 
 def ver_publicaciones_anio(request, anio):
@@ -44,4 +69,4 @@ def cursos(request, nombre):
 
 def quienes_somos(request):
     #return redirect('saludar_default')
-    return redirect(reverse('saludar', kwargs={'nombre': 'Estanislao'}))
+    return redirect(reversed('saludar', kwargs={'nombre': 'Estanislao'}))

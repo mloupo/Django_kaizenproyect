@@ -2,6 +2,8 @@ from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
+    path('', views.index, name='inicio'),
+
     # importa el orden en que declaro las rutas si maneja                rutas iguales
     path('hola_mundo', views.hola_mundo),
     path('saludar',views.saludar_default, name="saludar_default"),
